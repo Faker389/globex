@@ -222,12 +222,9 @@ const promotionsData = [
 ]
 
 
-export default function PromotionPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const promotionId = Number.parseInt(params.id)
+export default async function PromotionPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const promotionId = Number.parseInt(id)
   const promotion = promotionsData.find((p) => p.id === promotionId)
 
   if (!promotion) {
