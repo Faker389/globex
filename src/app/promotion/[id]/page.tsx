@@ -221,13 +221,12 @@ const promotionsData = [
   },
 ]
 
-interface PromotionPageProps {
-  params: {
-    id: string
-  }
-}
 
-export default function PromotionPage({ params }: PromotionPageProps) {
+export default function PromotionPage({
+  params,
+}: {
+  params: { id: string }
+}) {
   const promotionId = Number.parseInt(params.id)
   const promotion = promotionsData.find((p) => p.id === promotionId)
 
