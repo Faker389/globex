@@ -1,9 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Script from "next/script"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Letnie Perełki - Najlepsze Oferty Wakacyjne",
@@ -30,13 +30,22 @@ export default function RootLayout({
 
     <head>
     <Script
-      src="https://emrld.cc/NDU1ODE2.js?t=455816"
-      strategy="beforeInteractive"
-      async
-      data-noptimize="1"
-      data-cfasync="false"
-      data-wpfc-render="false"
-    />
+        id="emrld-loader"
+        strategy="afterInteractive"
+        data-noptimize="1"
+        data-cfasync="false"
+        data-wpfc-render="false"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function () {
+              var script = document.createElement("script");
+              script.async = 1;
+              script.src = "https://emrld.cc/NDU3MTE4.js?t=457118";
+              document.head.appendChild(script);
+            })();
+          `,
+        }} 
+      />
     </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>{children}</body>
 
