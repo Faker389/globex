@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
@@ -26,7 +27,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
+
+    <head>
+    <Script
+      src="https://emrld.cc/NDU1ODE2.js?t=455816"
+      strategy="beforeInteractive"
+      async
+      data-noptimize="1"
+      data-cfasync="false"
+      data-wpfc-render="false"
+    />
+    </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>{children}</body>
+
     </html>
   )
 }
